@@ -12,16 +12,7 @@ namespace Arkivverket.Arkade.Core
     {
         private readonly IArkadeTest _test;
         public TestId TestId => _test.GetId();
-        public string TestName => GetReportFriendlyName(_test.GetName());
-
-        private string GetReportFriendlyName(string name)
-        {
-            var friendlyName = ReportFriendlyNames.ResourceManager.GetString(name);
-            if (!string.IsNullOrEmpty(friendlyName))
-                return friendlyName;
-
-            return name;
-        }
+        public string TestName => GetTestName();
         public TestType TestType => _test.GetTestType();
         public string TestDescription => _test.GetDescription();
         public List<TestResult> Results { get; set; }
@@ -68,6 +59,11 @@ namespace Arkivverket.Arkade.Core
             var testRun = (TestRun) obj;
 
             return _test.CompareTo(testRun._test);
+        }
+
+        private string GetTestName()
+        {
+            return ReportFriendlyNames.ResourceManager.GetString(_test.GetName()) ?? _test.GetName();
         }
     }
 }
