@@ -158,6 +158,7 @@ namespace Arkivverket.Arkade.UI.Models
         private DateTime? _extractionDate;
         private string _incommingSeparator;
         private string _outgoingSeparator;
+        private string _label;
 
 
         public string History
@@ -196,6 +197,12 @@ namespace Arkivverket.Arkade.UI.Models
         {
             get { return _outgoingSeparator; }
             set { SetProperty(ref _outgoingSeparator, value); }
+        }
+
+        public string Label
+        {
+            get { return _label; }
+            set { SetProperty(ref _label, value); }
         }
 
 

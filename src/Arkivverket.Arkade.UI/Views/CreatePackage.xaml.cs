@@ -33,5 +33,15 @@ namespace Arkivverket.Arkade.UI.Views
             System.Windows.Controls.Calendar cal = (System.Windows.Controls.Calendar)popup.Child;
             cal.DisplayMode = System.Windows.Controls.CalendarMode.Decade;
         }
+
+        private void RadioButtonTypeAIP_Click(object sender, RoutedEventArgs e)
+        {
+            this.LabelSip.Visibility = Visibility.Hidden;
+        }
+
+        private void RadioButtonTypeSIP_Click(object sender, RoutedEventArgs e)
+        {
+            this.LabelSip.Visibility = Visibility.Visible;
+        }
     }
 }

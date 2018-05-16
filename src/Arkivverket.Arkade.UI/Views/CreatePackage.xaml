@@ -856,10 +856,14 @@
                 <TextBlock Grid.Row="6" Grid.Column="0" Text="{x:Static resources:UI.CreatePackageSelectTypeLabel}" Margin="10" />
 
                 <StackPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" Orientation="Horizontal">
-                    <RadioButton Content="{x:Static resources:UI.CreatePackageTypeSIP}"
+                    <RadioButton Click="RadioButtonTypeSIP_Click" Content="{x:Static resources:UI.CreatePackageTypeSIP}"
                          IsChecked="{Binding SelectedPackageTypeSip, Mode=TwoWay}"
                          Style="{StaticResource MaterialDesignRadioButton}" Margin="0 0 8 8" VerticalAlignment="Center" />
-                    <RadioButton Content="{x:Static resources:UI.CreatePackageTypeAIP}"
+                    <TextBox Name="LabelSip" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                 materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.Label}"
+                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                                 Text="{Binding MetaDataNoarkSection.Label, Mode=TwoWay}" Width="250" TextWrapping="Wrap"/>
+                    <RadioButton Click="RadioButtonTypeAIP_Click"  Content="{x:Static resources:UI.CreatePackageTypeAIP}"
                          IsChecked="{Binding SelectedPackageTypeAip, Mode=TwoWay}"
                          Style="{StaticResource MaterialDesignRadioButton}" Margin="0 0 8 8" VerticalAlignment="Center" />
                 </StackPanel>
