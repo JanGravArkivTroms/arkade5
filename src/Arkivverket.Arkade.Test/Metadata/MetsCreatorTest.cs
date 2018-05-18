@@ -198,7 +198,18 @@ namespace Arkivverket.Arkade.Test.Metadata
             mets.structMap.Length.Should().Be(1);
         }
 
-        public static ArchiveMetadata FakeArchiveMetadata()
+        [Fact]
+        public void ShouldCreateMetsFromMetadataOverwritingDefaultLabel()
+        {
+            string typeLabel = "testlabel";
+            var archive = ArchiveMetadata;
+            archive.TypeLabel = typeLabel;
+            mets mets = MetsCreator.Create(ArchiveMetadata);
+            mets.LABEL.Should().Be(typeLabel);
+
+        }
+
+            public static ArchiveMetadata FakeArchiveMetadata()
         {
             return new ArchiveMetadata
             {
