@@ -856,16 +856,19 @@
                 <TextBlock Grid.Row="6" Grid.Column="0" Text="{x:Static resources:UI.CreatePackageSelectTypeLabel}" Margin="10" />
 
                 <StackPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" Orientation="Horizontal">
-                    <RadioButton Click="RadioButtonTypeSIP_Click" Content="{x:Static resources:UI.CreatePackageTypeSIP}"
+                    <RadioButton Content="{x:Static resources:UI.CreatePackageTypeSIP}"
                          IsChecked="{Binding SelectedPackageTypeSip, Mode=TwoWay}"
                          Style="{StaticResource MaterialDesignRadioButton}" Margin="0 0 8 8" VerticalAlignment="Center" />
-                    <TextBox Name="LabelSip" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
-                                 materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.Label}"
-                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
-                                 Text="{Binding MetaDataNoarkSection.Label, Mode=TwoWay}" Width="250" TextWrapping="Wrap"/>
-                    <RadioButton Click="RadioButtonTypeAIP_Click"  Content="{x:Static resources:UI.CreatePackageTypeAIP}"
+                    <RadioButton Content="{x:Static resources:UI.CreatePackageTypeAIP}"
                          IsChecked="{Binding SelectedPackageTypeAip, Mode=TwoWay}"
                          Style="{StaticResource MaterialDesignRadioButton}" Margin="0 0 8 8" VerticalAlignment="Center" />
+                    <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="10" Margin="5"
+                        Visibility="{Binding MetaDataRecipient.ItemVisibility}" Width="269" HorizontalAlignment="Left">
+                        <TextBox Margin="0,0,0,5" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                 materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.PackageTypeLabel}"
+                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                                 Text="{Binding MetaDataNoarkSection.PackageTypeLabel, Mode=TwoWay}" Width="250" TextWrapping="Wrap"/>
+                    </Border>
                 </StackPanel>
 
                 <StackPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Margin="10 10" Orientation="Horizontal">

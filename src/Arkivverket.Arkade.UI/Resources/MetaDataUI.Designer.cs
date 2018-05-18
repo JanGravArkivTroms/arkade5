@@ -313,15 +313,6 @@ namespace Arkivverket.Arkade.UI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Merkelapp.
-        /// </summary>
-        public static string Label {
-            get {
-                return ResourceManager.GetString("Label", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to no.
         /// </summary>
         public static string MetadataGuiLocale {
@@ -390,6 +381,15 @@ namespace Arkivverket.Arkade.UI.Resources {
         public static string PackageCreationErrorStatusMessage {
             get {
                 return ResourceManager.GetString("PackageCreationErrorStatusMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Merkelapp.
+        /// </summary>
+        public static string PackageTypeLabel {
+            get {
+                return ResourceManager.GetString("PackageTypeLabel", resourceCulture);
             }
         }
         

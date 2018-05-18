@@ -214,9 +214,6 @@ Noark 3, Noark 4, Noark 5, Fagsystem</comment>
     <value>Inngående skille</value>
     <comment>Obligatorisk for Noark (addml)</comment>
   </data>
-  <data name="Label" xml:space="preserve">
-    <value>Merkelapp</value>
-  </data>
   <data name="MetadataGuiLocale" xml:space="preserve">
     <value>no</value>
     <comment>Can't get it to work as a reference</comment>
@@ -243,6 +240,9 @@ Noark 3, Noark 4, Noark 5, Fagsystem</comment>
   </data>
   <data name="PackageCreationErrorStatusMessage" xml:space="preserve">
     <value>Klarte ikke opprette/overskrive pakke. Sjekk om pakkedestinasjonen er opptatt.</value>
+  </data>
+  <data name="PackageTypeLabel" xml:space="preserve">
+    <value>Merkelapp</value>
   </data>
   <data name="Producer" xml:space="preserve">
     <value>Produsent</value>
