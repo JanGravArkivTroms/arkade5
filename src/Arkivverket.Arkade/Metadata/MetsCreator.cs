@@ -44,8 +44,9 @@ namespace Arkivverket.Arkade.Metadata
             mets.OBJID = metadata.Id;
             mets.PROFILE = "http://xml.ra.se/METS/RA_METS_eARD.xml";
             mets.LABEL = $"{metadata.System.Name}";
-
-            if (metadata.StartDate != null && metadata.EndDate != null)
+            if(!string.IsNullOrEmpty(metadata.TypeLabel))
+                mets.LABEL = $"{metadata.TypeLabel}";
+            else if (metadata.StartDate != null && metadata.EndDate != null)
                 mets.LABEL += $" ({metadata.StartDate?.Year} - {metadata.EndDate?.Year})";
         }
 

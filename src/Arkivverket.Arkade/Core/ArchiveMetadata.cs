@@ -23,6 +23,7 @@ namespace Arkivverket.Arkade.Core
         public string IncommingSeparator { get; set; }
         public string OutgoingSeparator { get; set; }
         public List<FileDescription> FileDescriptions { get; set; }
+        public string TypeLabel { get; set; }
     }
 
 
