@@ -516,11 +516,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,15"
+                        <TextBox Name="MetaDataSystemName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,15"
                                  materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.SystemName}"
-                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" TextChanged="MetaDataSystemName_TextChanged">
                             <TextBox.Text>
-                                <Binding Path="MetaDataSystem.SystemName" Mode="TwoWay">
+                                <Binding Path="MetaDataSystem.SystemName" Mode="TwoWay" >
                                     <Binding.ValidationRules>
                                         <validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
                                     </Binding.ValidationRules>
@@ -783,14 +783,14 @@
                         </Grid.ColumnDefinitions>
 
 
-                        <DatePicker Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                        <DatePicker Name="MetadataStartDate" SelectedDateChanged="MetadataStartDate_SelectedDateChanged"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
                                     Width="250" HorizontalAlignment="Left" Margin="0 16 0 0" 
                                     Language="no"
                                     materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.StartDate}" 
                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                                     SelectedDate="{Binding MetaDataNoarkSection.StartDate, Mode=TwoWay}" CalendarOpened="DatePicker_CalendarOpened"/>
 
-                        <DatePicker Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                        <DatePicker Name="MetadataEndDate" SelectedDateChanged="MetadataEndDate_SelectedDateChanged" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
                                     Width="250" HorizontalAlignment="Left" Margin="0 16 0 0" 
                                     Language="no"
                                     materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.EndData}" 
@@ -847,6 +847,34 @@
                                     SelectedDate="{Binding MetaDataExtractionDate.ExtractionDate, Mode=TwoWay}" CalendarOpened="DatePicker_CalendarOpened"/>
                     </Grid>
                 </Border>
+
+                <!-- Label -->
+                <GroupBox Header="{x:Static resources:MetaDataUI.Label}"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                          BorderThickness="0" Margin="0,20,0,0">
+                    <StackPanel Orientation="Horizontal">
+                    </StackPanel>
+                </GroupBox>
+
+
+                <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="10" Margin="5"
+                        Visibility="{Binding MetaDataExtractionDate.VisibilityItem}" Width="269" HorizontalAlignment="Left">
+                    <Grid Margin="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Margin="0,0,0,5" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                 materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.PackageLabel}"
+                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                                 Text="{Binding MetaDataNoarkSection.PackageLabel, Mode=TwoWay}" Width="250" TextWrapping="Wrap"/>
+                    </Grid>
+                </Border>
                 <!-- END METADATA  -->
 
                 <!-- Line divider  -->
@@ -862,13 +890,6 @@
                     <RadioButton Content="{x:Static resources:UI.CreatePackageTypeAIP}"
                          IsChecked="{Binding SelectedPackageTypeAip, Mode=TwoWay}"
                          Style="{StaticResource MaterialDesignRadioButton}" Margin="0 0 8 8" VerticalAlignment="Center" />
-                    <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="10" Margin="5"
-                        Visibility="{Binding MetaDataRecipient.ItemVisibility}" Width="269" HorizontalAlignment="Left">
-                        <TextBox Margin="0,0,0,5" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
-                                 materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.PackageTypeLabel}"
-                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
-                                 Text="{Binding MetaDataNoarkSection.PackageTypeLabel, Mode=TwoWay}" Width="250" TextWrapping="Wrap"/>
-                    </Border>
                 </StackPanel>
 
                 <StackPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Margin="10 10" Orientation="Horizontal">

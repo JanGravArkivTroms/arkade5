@@ -79,9 +79,9 @@ namespace Arkivverket.Arkade.UI.Util
             return metaDataNoarkSection.ExtractionDate;
         }
 
-        public static string MapToTypeLabel(GuiMetaDataModel metaDataNoarkSection)
+        public static string MapToLabel(GuiMetaDataModel metaDataNoarkSection)
         {
-            return metaDataNoarkSection.PackageTypeLabel;
+            return metaDataNoarkSection.PackageLabel;
         }
 
         private static List<MetadataEntityInformationUnit> MapToMetadataEntityInformationUnits(

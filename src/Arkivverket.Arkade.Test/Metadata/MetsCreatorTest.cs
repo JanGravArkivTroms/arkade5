@@ -198,22 +198,12 @@ namespace Arkivverket.Arkade.Test.Metadata
             mets.structMap.Length.Should().Be(1);
         }
 
-        [Fact]
-        public void ShouldCreateMetsFromMetadataOverwritingDefaultLabel()
-        {
-            string typeLabel = "testlabel";
-            var archive = ArchiveMetadata;
-            archive.TypeLabel = typeLabel;
-            mets mets = MetsCreator.Create(ArchiveMetadata);
-            mets.LABEL.Should().Be(typeLabel);
-
-        }
-
             public static ArchiveMetadata FakeArchiveMetadata()
         {
             return new ArchiveMetadata
             {
                 Id = "UUID:12345-12345-12345-12345-12345-12345",
+                Label = "Some system name (2017 - 2020)", 
                 ArchiveDescription = "Some archive description",
                 AgreementNumber = "XX 00-0000/0000; 0000-00-00",
                 ArchiveCreators = new List<MetadataEntityInformationUnit>

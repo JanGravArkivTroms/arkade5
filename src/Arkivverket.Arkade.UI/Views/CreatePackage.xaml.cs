@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arkivverket.Arkade.UI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,33 @@ namespace Arkivverket.Arkade.UI.Views
             Popup popup = (Popup)datepicker.Template.FindName("PART_Popup", datepicker);
             System.Windows.Controls.Calendar cal = (System.Windows.Controls.Calendar)popup.Child;
             cal.DisplayMode = System.Windows.Controls.CalendarMode.Decade;
+        }
+
+        private void MetaDataSystemName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetLabelText();
+        }
+
+        private void MetadataStartDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetLabelText();
+        }
+
+        private void MetadataEndDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetLabelText();
+        }
+
+        private void SetLabelText()
+        {
+            string label = "";
+            var metadataSystemName = MetaDataSystemName.Text;
+            if (!string.IsNullOrEmpty(metadataSystemName))
+                label = $"{metadataSystemName}";
+            if (!string.IsNullOrEmpty(MetadataStartDate.Text) && !string.IsNullOrEmpty(MetadataEndDate.Text))
+                label += $" ({MetadataStartDate.SelectedDate?.Year} - {MetadataEndDate.SelectedDate?.Year})";
+
+            ((CreatePackageViewModel)(this.DataContext)).MetaDataNoarkSection.PackageLabel = label;
         }
     }
 }

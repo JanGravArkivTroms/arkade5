@@ -387,8 +387,8 @@ namespace Arkivverket.Arkade.UI.ViewModels
                 if (archiveMetadata.EndDate != null)
                     MetaDataNoarkSection.EndDate = archiveMetadata.EndDate;
 
-                if (!string.IsNullOrEmpty(archiveMetadata.TypeLabel))
-                    MetaDataNoarkSection.PackageTypeLabel = archiveMetadata.TypeLabel;
+                if (!string.IsNullOrEmpty(archiveMetadata.Label))
+                    MetaDataNoarkSection.PackageLabel = archiveMetadata.Label;
 
                 if (archiveMetadata.ExtractionDate != null)
                     MetaDataExtractionDate = GuiMetadataMapper.MapToExtractionDate(archiveMetadata.ExtractionDate);
@@ -512,7 +512,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
                 StartDate = ArchiveMetadataMapper.MapToStartDate(_metaDataNoarkSection),
                 EndDate = ArchiveMetadataMapper.MapToEndDate(_metaDataNoarkSection),
                 ExtractionDate = ArchiveMetadataMapper.MapToExtractionDate(_metaDataExtractionDate),
-                TypeLabel = ArchiveMetadataMapper.MapToTypeLabel(_metaDataNoarkSection),
+                Label = ArchiveMetadataMapper.MapToLabel(_metaDataNoarkSection),
             };
 
             _isRunningCreatePackage = true;

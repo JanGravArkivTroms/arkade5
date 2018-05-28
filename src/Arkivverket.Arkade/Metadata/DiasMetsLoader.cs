@@ -16,6 +16,8 @@ namespace Arkivverket.Arkade.Metadata
 
             var archiveMetadata = new ArchiveMetadata();
 
+            LoadMetsElementAttributes(archiveMetadata, mets);
+
             if (mets.metsHdr != null)
                 LoadMetsHdr(archiveMetadata, mets.metsHdr);
 
@@ -23,6 +25,12 @@ namespace Arkivverket.Arkade.Metadata
                 LoadAmdSec(archiveMetadata, mets.amdSec);
 
             return archiveMetadata;
+        }
+
+        private static void LoadMetsElementAttributes(ArchiveMetadata archiveMetadata, mets mets)
+        {
+            archiveMetadata.Label = mets.LABEL;
+
         }
 
         private static void LoadMetsHdr(ArchiveMetadata archiveMetadata, metsTypeMetsHdr metsHdr)
