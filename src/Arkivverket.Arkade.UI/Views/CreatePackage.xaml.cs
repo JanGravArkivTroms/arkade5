@@ -52,14 +52,17 @@ namespace Arkivverket.Arkade.UI.Views
 
         private void SetLabelText()
         {
-            string label = "";
-            var metadataSystemName = MetaDataSystemName.Text;
-            if (!string.IsNullOrEmpty(metadataSystemName))
-                label = $"{metadataSystemName}";
-            if (!string.IsNullOrEmpty(MetadataStartDate.Text) && !string.IsNullOrEmpty(MetadataEndDate.Text))
-                label += $" ({MetadataStartDate.SelectedDate?.Year} - {MetadataEndDate.SelectedDate?.Year})";
+            if(string.IsNullOrEmpty(((CreatePackageViewModel)(this.DataContext)).MetaDataNoarkSection.PackageLabel))
+            {
+                string label = "";
+                var metadataSystemName = MetaDataSystemName.Text;
+                if (!string.IsNullOrEmpty(metadataSystemName))
+                    label = $"{metadataSystemName}";
+                if (!string.IsNullOrEmpty(MetadataStartDate.Text) && !string.IsNullOrEmpty(MetadataEndDate.Text))
+                    label += $" ({MetadataStartDate.SelectedDate?.Year} - {MetadataEndDate.SelectedDate?.Year})";
 
-            ((CreatePackageViewModel)(this.DataContext)).MetaDataNoarkSection.PackageLabel = label;
+                ((CreatePackageViewModel)(this.DataContext)).MetaDataNoarkSection.PackageLabel = label;
+            }
         }
     }
 }
