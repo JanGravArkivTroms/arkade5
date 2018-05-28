@@ -30,7 +30,6 @@ namespace Arkivverket.Arkade.Metadata
         private static void LoadMetsElementAttributes(ArchiveMetadata archiveMetadata, mets mets)
         {
             archiveMetadata.Label = mets.LABEL;
-
         }
 
         private static void LoadMetsHdr(ArchiveMetadata archiveMetadata, metsTypeMetsHdr metsHdr)
