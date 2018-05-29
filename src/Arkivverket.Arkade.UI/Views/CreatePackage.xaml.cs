@@ -50,9 +50,14 @@ namespace Arkivverket.Arkade.UI.Views
             SetLabelText();
         }
 
+        private void Label_LostFocus(object sender, RoutedEventArgs e)
+        {
+            ((CreatePackageViewModel)(this.DataContext)).CustomLabel = true;
+        }
+
         private void SetLabelText()
         {
-            if(string.IsNullOrEmpty(((CreatePackageViewModel)(this.DataContext)).MetaDataNoarkSection.PackageLabel))
+            if (!((CreatePackageViewModel)(this.DataContext)).CustomLabel)
             {
                 string label = "";
                 var metadataSystemName = MetaDataSystemName.Text;

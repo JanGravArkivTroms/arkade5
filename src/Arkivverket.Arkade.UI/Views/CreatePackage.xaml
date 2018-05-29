@@ -869,7 +869,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBox Margin="0,0,0,5" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                        <TextBox Name="Label" LostFocus="Label_LostFocus"  Margin="0,0,0,5" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
                                  materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.PackageLabel}"
                                  Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                                  Text="{Binding MetaDataNoarkSection.PackageLabel, Mode=TwoWay}" Width="250" TextWrapping="Wrap"/>

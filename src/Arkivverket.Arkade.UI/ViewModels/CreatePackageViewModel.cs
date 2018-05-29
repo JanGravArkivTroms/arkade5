@@ -29,6 +29,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
         private bool _isRunningCreatePackage;
         private bool _selectedPackageTypeAip;
         private bool _selectedPackageTypeSip = true;
+        private bool _customLabel = false;
         private string _statusMessageText;
         private string _statusMessagePath;
         private TestSession _testSession;
@@ -94,6 +95,15 @@ namespace Arkivverket.Arkade.UI.ViewModels
             {
                 SetProperty(ref _selectedPackageTypeAip, value);
                 CreatePackageCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        public bool CustomLabel
+        {
+            get { return _customLabel; }
+            set
+            {
+                SetProperty(ref _customLabel, value);
             }
         }
 
@@ -387,8 +397,10 @@ namespace Arkivverket.Arkade.UI.ViewModels
                 if (archiveMetadata.EndDate != null)
                     MetaDataNoarkSection.EndDate = archiveMetadata.EndDate;
 
-                if (!string.IsNullOrEmpty(archiveMetadata.Label))
+                if (!string.IsNullOrEmpty(archiveMetadata.Label)) { 
                     MetaDataNoarkSection.PackageLabel = archiveMetadata.Label;
+                    CustomLabel = true;
+                }
 
                 if (archiveMetadata.ExtractionDate != null)
                     MetaDataExtractionDate = GuiMetadataMapper.MapToExtractionDate(archiveMetadata.ExtractionDate);
