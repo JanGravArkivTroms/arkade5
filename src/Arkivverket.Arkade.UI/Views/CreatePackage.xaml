@@ -518,7 +518,7 @@
 
                         <TextBox Name="MetaDataSystemName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,15"
                                  materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.SystemName}"
-                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" TextChanged="MetaDataSystemName_TextChanged">
+                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" GotFocus="SetLabel" TextChanged="SetLabel">
                             <TextBox.Text>
                                 <Binding Path="MetaDataSystem.SystemName" Mode="TwoWay" >
                                     <Binding.ValidationRules>
@@ -783,14 +783,14 @@
                         </Grid.ColumnDefinitions>
 
 
-                        <DatePicker Name="MetadataStartDate" SelectedDateChanged="MetadataStartDate_SelectedDateChanged"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                        <DatePicker Name="MetadataStartDate" GotFocus="SetLabel" SelectedDateChanged="SetLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
                                     Width="250" HorizontalAlignment="Left" Margin="0 16 0 0" 
                                     Language="no"
                                     materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.StartDate}" 
                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                                     SelectedDate="{Binding MetaDataNoarkSection.StartDate, Mode=TwoWay}" CalendarOpened="DatePicker_CalendarOpened"/>
 
-                        <DatePicker Name="MetadataEndDate" SelectedDateChanged="MetadataEndDate_SelectedDateChanged" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                        <DatePicker Name="MetadataEndDate" GotFocus="SetLabel" SelectedDateChanged="SetLabel" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
                                     Width="250" HorizontalAlignment="Left" Margin="0 16 0 0" 
                                     Language="no"
                                     materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.EndData}" 
@@ -869,10 +869,10 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBox Name="Label" LostFocus="Label_LostFocus"  Margin="0,0,0,5" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
-                                 materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.PackageLabel}"
+                        <TextBox Name="Label" TextChanged="LabelChanged"  Margin="0,0,0,5" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                 materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.Label}"
                                  Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
-                                 Text="{Binding MetaDataNoarkSection.PackageLabel, Mode=TwoWay}" Width="250" TextWrapping="Wrap"/>
+                                 Text="{Binding MetaDataNoarkSection.Label, Mode=TwoWay}" Width="250" TextWrapping="Wrap"/>
                     </Grid>
                 </Border>
                 <!-- END METADATA  -->

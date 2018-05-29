@@ -7,6 +7,11 @@ namespace Arkivverket.Arkade.UI.Util
 {
     public static class ArchiveMetadataMapper
     {
+        public static string MapToLabel(GuiMetaDataModel metaDataNoarkSection)
+        {
+            return metaDataNoarkSection.Label;
+        }
+
         public static string MapToArchiveDescription(GuiMetaDataModel guiMetaDataModel)
         {
             return guiMetaDataModel.ArchiveDescription;
@@ -77,11 +82,6 @@ namespace Arkivverket.Arkade.UI.Util
         public static DateTime? MapToExtractionDate(GuiMetaDataModel metaDataNoarkSection)
         {
             return metaDataNoarkSection.ExtractionDate;
-        }
-
-        public static string MapToLabel(GuiMetaDataModel metaDataNoarkSection)
-        {
-            return metaDataNoarkSection.PackageLabel;
         }
 
         private static List<MetadataEntityInformationUnit> MapToMetadataEntityInformationUnits(

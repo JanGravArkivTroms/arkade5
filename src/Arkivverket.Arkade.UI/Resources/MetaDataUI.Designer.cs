@@ -394,15 +394,6 @@ namespace Arkivverket.Arkade.UI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Merkelapp.
-        /// </summary>
-        public static string PackageLabel {
-            get {
-                return ResourceManager.GetString("PackageLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Produsent.
         /// </summary>
         public static string Producer {

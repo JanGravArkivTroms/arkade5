@@ -1,5 +1,5 @@
+﻿using System;
 ﻿using Arkivverket.Arkade.UI.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,29 +35,9 @@ namespace Arkivverket.Arkade.UI.Views
             cal.DisplayMode = System.Windows.Controls.CalendarMode.Decade;
         }
 
-        private void MetaDataSystemName_TextChanged(object sender, TextChangedEventArgs e)
+        private void SetLabel(object sender, RoutedEventArgs e)
         {
-            SetLabelText();
-        }
-
-        private void MetadataStartDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SetLabelText();
-        }
-
-        private void MetadataEndDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SetLabelText();
-        }
-
-        private void Label_LostFocus(object sender, RoutedEventArgs e)
-        {
-            ((CreatePackageViewModel)(this.DataContext)).CustomLabel = true;
-        }
-
-        private void SetLabelText()
-        {
-            if (!((CreatePackageViewModel)(this.DataContext)).CustomLabel)
+            if (!((CreatePackageViewModel)DataContext).CustomLabel)
             {
                 string label = "";
                 var metadataSystemName = MetaDataSystemName.Text;
@@ -66,8 +46,16 @@ namespace Arkivverket.Arkade.UI.Views
                 if (!string.IsNullOrEmpty(MetadataStartDate.Text) && !string.IsNullOrEmpty(MetadataEndDate.Text))
                     label += $" ({MetadataStartDate.SelectedDate?.Year} - {MetadataEndDate.SelectedDate?.Year})";
 
-                ((CreatePackageViewModel)(this.DataContext)).MetaDataNoarkSection.PackageLabel = label;
+                ((CreatePackageViewModel)DataContext).MetaDataNoarkSection.Label = label;
             }
+        }
+
+        private void LabelChanged(object sender, RoutedEventArgs e)
+        {
+            var labelTextBox = (TextBox) sender;
+
+            ((CreatePackageViewModel) DataContext).CustomLabel =
+                labelTextBox.IsFocused && !string.IsNullOrEmpty(labelTextBox.Text);
         }
     }
 }

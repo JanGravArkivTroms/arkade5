@@ -6,6 +6,7 @@ namespace Arkivverket.Arkade.Core
     public class ArchiveMetadata
     {
         public string Id { get; set; }
+        public string Label { get; set; }
         public string ArchiveDescription { get; set; }
         public string AgreementNumber { get; set; }
         public List<MetadataEntityInformationUnit> ArchiveCreators { get; set; }
@@ -23,7 +24,6 @@ namespace Arkivverket.Arkade.Core
         public string IncommingSeparator { get; set; }
         public string OutgoingSeparator { get; set; }
         public List<FileDescription> FileDescriptions { get; set; }
-        public string Label { get; set; }
     }
 
 

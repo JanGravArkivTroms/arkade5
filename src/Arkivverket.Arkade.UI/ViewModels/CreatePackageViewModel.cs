@@ -29,7 +29,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
         private bool _isRunningCreatePackage;
         private bool _selectedPackageTypeAip;
         private bool _selectedPackageTypeSip = true;
-        private bool _customLabel = false;
+        private bool _customLabel;
         private string _statusMessageText;
         private string _statusMessagePath;
         private TestSession _testSession;
@@ -101,10 +101,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
         public bool CustomLabel
         {
             get { return _customLabel; }
-            set
-            {
-                SetProperty(ref _customLabel, value);
-            }
+            set { SetProperty(ref _customLabel, value); }
         }
 
 
@@ -398,7 +395,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
                     MetaDataNoarkSection.EndDate = archiveMetadata.EndDate;
 
                 if (!string.IsNullOrEmpty(archiveMetadata.Label)) { 
-                    MetaDataNoarkSection.PackageLabel = archiveMetadata.Label;
+                    MetaDataNoarkSection.Label = archiveMetadata.Label;
                     CustomLabel = true;
                 }
 
@@ -511,6 +508,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
             {
                 Id = $"UUID:{_testSession.Archive.Uuid}",
 
+                Label = ArchiveMetadataMapper.MapToLabel(_metaDataNoarkSection),
                 ArchiveDescription = ArchiveMetadataMapper.MapToArchiveDescription(_metaDataArchiveDescription),
                 AgreementNumber = ArchiveMetadataMapper.MapToAgreementNumber(_metaDataArchiveDescription),
                 ArchiveCreators = ArchiveMetadataMapper.MapToArchiveCreators(_metaDataArchiveCreators.Where(c => !c.IsDeleted)),
@@ -524,7 +522,6 @@ namespace Arkivverket.Arkade.UI.ViewModels
                 StartDate = ArchiveMetadataMapper.MapToStartDate(_metaDataNoarkSection),
                 EndDate = ArchiveMetadataMapper.MapToEndDate(_metaDataNoarkSection),
                 ExtractionDate = ArchiveMetadataMapper.MapToExtractionDate(_metaDataExtractionDate),
-                Label = ArchiveMetadataMapper.MapToLabel(_metaDataNoarkSection),
             };
 
             _isRunningCreatePackage = true;
