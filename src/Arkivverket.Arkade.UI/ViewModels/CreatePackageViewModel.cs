@@ -394,7 +394,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
                 if (archiveMetadata.EndDate != null)
                     MetaDataNoarkSection.EndDate = archiveMetadata.EndDate;
 
-                if (!string.IsNullOrEmpty(archiveMetadata.Label)) { 
+                if (archiveMetadata.Label != null) { 
                     MetaDataNoarkSection.Label = archiveMetadata.Label;
                     CustomLabel = true;
                 }

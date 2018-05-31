@@ -43,7 +43,7 @@ namespace Arkivverket.Arkade.Metadata
         {
             mets.OBJID = metadata.Id;
             mets.PROFILE = "http://xml.ra.se/METS/RA_METS_eARD.xml";
-            mets.LABEL = $"{metadata.Label}";
+            mets.LABEL = metadata.Label;
         }
 
         private static void CreateMetsHdr(metsType mets, ArchiveMetadata metadata)
