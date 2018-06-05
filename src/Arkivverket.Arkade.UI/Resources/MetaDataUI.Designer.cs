@@ -403,7 +403,7 @@ namespace Arkivverket.Arkade.UI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kontaktperson (Produsent)*.
+        ///   Looks up a localized string similar to Kontaktperson (Produsent).
         /// </summary>
         public static string Producer_ContactPerson {
             get {
