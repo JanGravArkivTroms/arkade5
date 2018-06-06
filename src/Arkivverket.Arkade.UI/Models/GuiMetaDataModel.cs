@@ -75,6 +75,7 @@ namespace Arkivverket.Arkade.UI.Models
         private string _contactPerson;
         private string _telephone;
         private string _email;
+        private string _address;
 
         private string _comment;
 
@@ -89,6 +90,12 @@ namespace Arkivverket.Arkade.UI.Models
         {
             get { return _email; }
             set { SetProperty(ref _email, value); }
+        }
+
+        public string Address
+        {
+            get { return _address; }
+            set { SetProperty(ref _address, value); }
         }
 
         public string Telephone
@@ -209,12 +216,13 @@ namespace Arkivverket.Arkade.UI.Models
         }
 
 
-        public GuiMetaDataModel(string entity, string contactPerson, string telephone, string email)
+        public GuiMetaDataModel(string entity, string contactPerson, string telephone, string email, string address)
         {
             Entity = entity;
             ContactPerson = contactPerson;
             Telephone = telephone;
             Email = email;
+            Address = address;
 
             CommandDeleteItem = new DelegateCommand(ExecuteDeleteItem);
             CommandAddItem = new DelegateCommand(ExecuteAddItem);
@@ -318,6 +326,7 @@ namespace Arkivverket.Arkade.UI.Models
         {
             Comment = string.Empty;
             Email = string.Empty;
+            Address = string.Empty;
             Telephone = string.Empty;
             ContactPerson = string.Empty;
             Entity = string.Empty;

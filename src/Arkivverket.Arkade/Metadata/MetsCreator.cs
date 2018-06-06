@@ -144,7 +144,7 @@ namespace Arkivverket.Arkade.Metadata
                             TYPE = metsTypeMetsHdrAgentTYPE.INDIVIDUAL,
                             ROLE = metsTypeMetsHdrAgentROLE.ARCHIVIST,
                             name = metadataArchiveCreator.ContactPerson,
-                            note = new[] { metadataArchiveCreator.Telephone, metadataArchiveCreator.Email }
+                            note = new[] { metadataArchiveCreator.Telephone, metadataArchiveCreator.Email, metadataArchiveCreator.Address }
                         });
                     }
                 }
@@ -175,7 +175,7 @@ namespace Arkivverket.Arkade.Metadata
                         OTHERROLESpecified = true,
                         OTHERROLE = metsTypeMetsHdrAgentOTHERROLE.SUBMITTER,
                         name = metadata.Transferer.ContactPerson,
-                        note = new[] { metadata.Transferer.Telephone, metadata.Transferer.Email }
+                        note = new[] { metadata.Transferer.Telephone, metadata.Transferer.Email, metadata.Transferer.Address }
                     });
                 }
             }
@@ -205,7 +205,7 @@ namespace Arkivverket.Arkade.Metadata
                         OTHERROLESpecified = true,
                         OTHERROLE = metsTypeMetsHdrAgentOTHERROLE.PRODUCER,
                         name = metadata.Producer.ContactPerson,
-                        note = new[] { metadata.Producer.Telephone, metadata.Producer.Email }
+                        note = new[] { metadata.Producer.Telephone, metadata.Producer.Email, metadata.Producer.Address }
                     });
                 }
             }
@@ -233,7 +233,7 @@ namespace Arkivverket.Arkade.Metadata
                             TYPE = metsTypeMetsHdrAgentTYPE.INDIVIDUAL,
                             ROLE = metsTypeMetsHdrAgentROLE.IPOWNER,
                             name = metadataOwner.ContactPerson,
-                            note = new[] { metadataOwner.Telephone, metadataOwner.Email }
+                            note = new[] { metadataOwner.Telephone, metadataOwner.Email, metadataOwner.Address }
                         });
                     }
                 }

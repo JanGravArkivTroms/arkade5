@@ -39,15 +39,15 @@ namespace Arkivverket.Arkade.UI.ViewModels
 
         private GuiMetaDataModel _metaDataArchiveDescription = new GuiMetaDataModel(string.Empty, string.Empty);
         private ObservableCollection<GuiMetaDataModel> _metaDataArchiveCreators = new ObservableCollectionEx<GuiMetaDataModel>();
-        private GuiMetaDataModel _metaDataTransferer = new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty);
-        private GuiMetaDataModel _metaDataProducer = new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty);
+        private GuiMetaDataModel _metaDataTransferer = new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty,string.Empty);
+        private GuiMetaDataModel _metaDataProducer = new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty,string.Empty);
         private ObservableCollection<GuiMetaDataModel> _metaDataOwners = new ObservableCollectionEx<GuiMetaDataModel>();
-        private GuiMetaDataModel _metaDataRecipient = new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty);
+        private GuiMetaDataModel _metaDataRecipient = new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty, string.Empty);
         private GuiMetaDataModel _metaDataSystem = new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty, GuiObjectType.system);
         private GuiMetaDataModel _metaDataArchiveSystem = new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty, GuiObjectType.system);
         private ObservableCollection<GuiMetaDataModel> _metaDataComments = new ObservableCollection<GuiMetaDataModel>();
         private GuiMetaDataModel _metaDataHistory = new GuiMetaDataModel(string.Empty, GuiObjectType.history);
-        private GuiMetaDataModel _metaDataNoarkSection = new GuiMetaDataModel(null, null, string.Empty, string.Empty);
+        private GuiMetaDataModel _metaDataNoarkSection = new GuiMetaDataModel(null, null, string.Empty, string.Empty,string.Empty);
         private GuiMetaDataModel _metaDataExtractionDate = new GuiMetaDataModel(null);
 
 
@@ -199,6 +199,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
                 MetaDataTransferer.ContactPerson = SelectedTransfererDataModel.ContactPerson;
                 MetaDataTransferer.Telephone = SelectedTransfererDataModel.Telephone;
                 MetaDataTransferer.Email = SelectedTransfererDataModel.Email;
+                MetaDataTransferer.Address = SelectedTransfererDataModel.Address;
             }
         }
 
@@ -212,6 +213,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
                 MetaDataProducer.ContactPerson = SelectedProducerDataModel.ContactPerson;
                 MetaDataProducer.Telephone = SelectedProducerDataModel.Telephone;
                 MetaDataProducer.Email = SelectedProducerDataModel.Email;
+                MetaDataProducer.Address = SelectedProducerDataModel.Address;
             }
         }
 
@@ -222,9 +224,9 @@ namespace Arkivverket.Arkade.UI.ViewModels
             {
                 SetProperty(ref _selectedOwnerDataModel, value);
                 SetProperty(ref _selectedCreatorDataModel, value);
-                if (_EnterElementIfOneNotDeletedEntryIsNotFilled(MetaDataOwners, _selectedOwnerDataModel.Entity, _selectedOwnerDataModel.ContactPerson, _selectedOwnerDataModel.Telephone, _selectedOwnerDataModel.Email) == false)
+                if (_EnterElementIfOneNotDeletedEntryIsNotFilled(MetaDataOwners, _selectedOwnerDataModel.Entity, _selectedOwnerDataModel.ContactPerson, _selectedOwnerDataModel.Telephone, _selectedOwnerDataModel.Email, _selectedOwnerDataModel.Address) == false)
                 {
-                    MetaDataOwners.Add(new GuiMetaDataModel(_selectedOwnerDataModel.Entity, _selectedOwnerDataModel.ContactPerson, _selectedOwnerDataModel.Telephone, _selectedOwnerDataModel.Email));
+                    MetaDataOwners.Add(new GuiMetaDataModel(_selectedOwnerDataModel.Entity, _selectedOwnerDataModel.ContactPerson, _selectedOwnerDataModel.Telephone, _selectedOwnerDataModel.Email, _selectedOwnerDataModel.Address));
                 }
             }
         }
@@ -245,9 +247,9 @@ namespace Arkivverket.Arkade.UI.ViewModels
             set
             {
                 SetProperty(ref _selectedCreatorDataModel, value);
-                if (_EnterElementIfOneNotDeletedEntryIsNotFilled(MetaDataArchiveCreators, _selectedCreatorDataModel.Entity, _selectedCreatorDataModel.ContactPerson, _selectedCreatorDataModel.Telephone, _selectedCreatorDataModel.Email) == false)
+                if (_EnterElementIfOneNotDeletedEntryIsNotFilled(MetaDataArchiveCreators, _selectedCreatorDataModel.Entity, _selectedCreatorDataModel.ContactPerson, _selectedCreatorDataModel.Telephone, _selectedCreatorDataModel.Email, _selectedCreatorDataModel.Address) == false)
                 {
-                    MetaDataArchiveCreators.Add(new GuiMetaDataModel(_selectedCreatorDataModel.Entity, _selectedCreatorDataModel.ContactPerson, _selectedCreatorDataModel.Telephone, _selectedCreatorDataModel.Email));
+                    MetaDataArchiveCreators.Add(new GuiMetaDataModel(_selectedCreatorDataModel.Entity, _selectedCreatorDataModel.ContactPerson, _selectedCreatorDataModel.Telephone, _selectedCreatorDataModel.Email, _selectedCreatorDataModel.Address));
                 }
             }
         }
@@ -299,12 +301,12 @@ namespace Arkivverket.Arkade.UI.ViewModels
 
         public void RunAddMetadataAchiveCreatorEntry()
         {
-            MetaDataArchiveCreators.Add(new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty));
+            MetaDataArchiveCreators.Add(new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty,string.Empty));
         }
 
         public void RunAddMetadataAchiveOwnerEntry()
         {
-            MetaDataOwners.Add(new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty));
+            MetaDataOwners.Add(new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty, string.Empty));
         }
         public void RunAddMetadataCommentEntry()
         {
@@ -430,14 +432,16 @@ namespace Arkivverket.Arkade.UI.ViewModels
                     Entity = "Eksempelorganisasjon 1",
                     ContactPerson = "Ola Nordmann",
                     Telephone = "99999999",
-                    Email = "ola@nordmann.no"
+                    Email = "ola@nordmann.no",
+                    Address = "Bø i Telemark"
                 },
                 new MetadataEntityInformationUnit
                 {
                     Entity = "Eksempelorganisasjon 2",
                     ContactPerson = "Kari Nordmann",
                     Telephone = "44444444",
-                    Email = "kari@nordmann.no"
+                    Email = "kari@nordmann.no",
+                    Address = "Oslo"
                 }
             };
 
@@ -555,7 +559,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
             return collection.Count(x => x.IsDeleted == false);
         }
 
-        private bool _EnterElementIfOneNotDeletedEntryIsNotFilled(ObservableCollection<GuiMetaDataModel> collection, string entity, string contactPerson, string telephone, string email)
+        private bool _EnterElementIfOneNotDeletedEntryIsNotFilled(ObservableCollection<GuiMetaDataModel> collection, string entity, string contactPerson, string telephone, string email, string address)
         {
             if ((collection.Count(x => (x.IsDeleted == false) && (x.Entity == string.Empty))) == 1)
             {
@@ -567,6 +571,7 @@ namespace Arkivverket.Arkade.UI.ViewModels
                         entry.ContactPerson = contactPerson;
                         entry.Telephone = telephone;
                         entry.Email = email;
+                        entry.Address = address;
                     }
                 }
                 return true;

@@ -79,6 +79,15 @@ namespace Arkivverket.Arkade.UI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adresse (Kontakt, Arkivskaper).
+        /// </summary>
+        public static string ArchiveCreator_Address {
+            get {
+                return ResourceManager.GetString("ArchiveCreator_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kontaktperson (Arkivskaper).
         /// </summary>
         public static string ArchiveCreator_ContactPerson {
@@ -349,6 +358,15 @@ namespace Arkivverket.Arkade.UI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adresse (Kontakt, Eier).
+        /// </summary>
+        public static string Owner_Address {
+            get {
+                return ResourceManager.GetString("Owner_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kontaktperson (Eier).
         /// </summary>
         public static string Owner_ContactPerson {
@@ -399,6 +417,15 @@ namespace Arkivverket.Arkade.UI.Resources {
         public static string Producer {
             get {
                 return ResourceManager.GetString("Producer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adresse (Kontakt, Produsent).
+        /// </summary>
+        public static string Producer_Address {
+            get {
+                return ResourceManager.GetString("Producer_Address", resourceCulture);
             }
         }
         
@@ -516,6 +543,15 @@ namespace Arkivverket.Arkade.UI.Resources {
         public static string Transferer {
             get {
                 return ResourceManager.GetString("Transferer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adresse (Kontakt, Overfører).
+        /// </summary>
+        public static string Transferer_Address {
+            get {
+                return ResourceManager.GetString("Transferer_Address", resourceCulture);
             }
         }
         

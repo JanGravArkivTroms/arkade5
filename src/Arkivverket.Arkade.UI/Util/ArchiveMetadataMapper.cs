@@ -98,7 +98,8 @@ namespace Arkivverket.Arkade.UI.Util
                 Entity = guiMetaDataModel.Entity,
                 ContactPerson = guiMetaDataModel.ContactPerson,
                 Email = guiMetaDataModel.Email,
-                Telephone = guiMetaDataModel.Telephone
+                Telephone = guiMetaDataModel.Telephone,
+                Address = guiMetaDataModel.Address
             };
         }
 

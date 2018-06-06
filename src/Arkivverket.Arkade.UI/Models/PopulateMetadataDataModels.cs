@@ -17,12 +17,12 @@ namespace Arkivverket.Arkade.UI.Models
 
         public void DatafillArchiveCreator(ArchiveMetadata archiveMetadata, ObservableCollection<GuiMetaDataModel> metaDataModel)
         {
-            metaDataModel.Add(new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty));
+            metaDataModel.Add(new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty, string.Empty));
         }
 
         public void DatafillArchiveRecipient(ArchiveMetadata archiveMetadata, ObservableCollection<GuiMetaDataModel> metaDataModel)
         {
-            metaDataModel.Add(new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty));
+            metaDataModel.Add(new GuiMetaDataModel(string.Empty, string.Empty, string.Empty, string.Empty, string.Empty));
         }
 
         public void DatafillArchiveSystem(ArchiveMetadata archiveMetadata, ObservableCollection<GuiMetaDataModel> metaDataModel)
@@ -34,7 +34,7 @@ namespace Arkivverket.Arkade.UI.Models
         {
             foreach (var entity in metaDataEntityInformationUnits)
             {
-                metaDataModel.Add(new GuiMetaDataModel(entity.Entity, entity.ContactPerson, entity.Telephone, entity.Email));
+                metaDataModel.Add(new GuiMetaDataModel(entity.Entity, entity.ContactPerson, entity.Telephone, entity.Email, entity.Address));
             }
 
         }

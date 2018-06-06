@@ -37,7 +37,7 @@ namespace Arkivverket.Arkade.UI.Util
 
         public static GuiMetaDataModel MapToRecipient(string recipient)
         {
-            return new GuiMetaDataModel(recipient, string.Empty, string.Empty, string.Empty);
+            return new GuiMetaDataModel(recipient, string.Empty, string.Empty, string.Empty, string.Empty);
         }
 
         public static GuiMetaDataModel MapToSystem(MetadataSystemInformationUnit system)
@@ -83,7 +83,8 @@ namespace Arkivverket.Arkade.UI.Util
                 metadataEntityInformationUnit.Entity,
                 metadataEntityInformationUnit.ContactPerson,
                 metadataEntityInformationUnit.Telephone,
-                metadataEntityInformationUnit.Email
+                metadataEntityInformationUnit.Email,
+                metadataEntityInformationUnit.Address
             );
         }
     }

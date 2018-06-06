@@ -172,7 +172,12 @@
                                              Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                                              Text="{Binding Email, Mode=TwoWay}" />
 
-                                    <Button Grid.Row="4"
+                                    <TextBox Grid.Row="4" Grid.Column="0"
+                                             materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.ArchiveCreator_Address}"
+                                             Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                                             Text="{Binding Address, Mode=TwoWay}" />
+
+                                    <Button Grid.Row="5"
                                             Style="{DynamicResource MaterialDesignToolButton}"
                                             Height="24" Width="24" Command="{Binding CommandDeleteItem}"
                                             Visibility="{Binding DeleteButtonVisibility}" HorizontalAlignment="Right">
@@ -260,7 +265,12 @@
                                  Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                                  Text="{Binding MetaDataTransferer.Email, Mode=TwoWay}" />
 
-                        <Button Grid.Row="4" HorizontalAlignment="Right"
+                        <TextBox Grid.Row="4" Grid.Column="0"
+                                 materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.Transferer_Address}"
+                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                                 Text="{Binding MetaDataTransferer.Address, Mode=TwoWay}" />
+
+                        <Button Grid.Row="5" HorizontalAlignment="Right"
                                 Style="{DynamicResource MaterialDesignToolButton}"
                                 Height="24" Width="24" Command="{Binding MetaDataTransferer.CommandNullOutEntry}">
                             <materialDesign:PackIcon Kind="{Binding MetaDataTransferer.IconDelete}" Opacity=".56" />
@@ -342,7 +352,12 @@
                                  Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                                  Text="{Binding MetaDataProducer.Email, Mode=TwoWay}" />
 
-                        <Button Grid.Row="4" HorizontalAlignment="Right"
+                        <TextBox Grid.Row="4"
+                                 materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.Producer_Address}"
+                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                                 Text="{Binding MetaDataProducer.Address, Mode=TwoWay}" />
+
+                        <Button Grid.Row="5" HorizontalAlignment="Right"
                                 Style="{DynamicResource MaterialDesignToolButton}"
                                 Height="24" Width="24" Command="{Binding MetaDataProducer.CommandNullOutEntry}">
                             <materialDesign:PackIcon Kind="{Binding MetaDataProducer.IconDelete}" Opacity=".56" />
@@ -429,7 +444,12 @@
                                              Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                                              Text="{Binding Email, Mode=TwoWay}" />
 
-                                    <Button Grid.Row="4"
+                                    <TextBox Grid.Row="4" Grid.Column="0"
+                                             materialDesign:HintAssist.Hint="{x:Static resources:MetaDataUI.Owner_Address}"
+                                             Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                                             Text="{Binding Address, Mode=TwoWay}" />
+
+                                    <Button Grid.Row="5"
                                             Style="{DynamicResource MaterialDesignToolButton}"
                                             Height="24" Width="24" Command="{Binding CommandDeleteItem}"
                                             Visibility="{Binding DeleteButtonVisibility}" HorizontalAlignment="Right">
