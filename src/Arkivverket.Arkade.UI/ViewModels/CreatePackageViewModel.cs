@@ -197,9 +197,9 @@ namespace Arkivverket.Arkade.UI.ViewModels
                 SetProperty(ref _selectedTransfererDataModel, value);
                 MetaDataTransferer.Entity = SelectedTransfererDataModel.Entity;
                 MetaDataTransferer.ContactPerson = SelectedTransfererDataModel.ContactPerson;
+                MetaDataTransferer.Address = SelectedTransfererDataModel.Address;
                 MetaDataTransferer.Telephone = SelectedTransfererDataModel.Telephone;
                 MetaDataTransferer.Email = SelectedTransfererDataModel.Email;
-                MetaDataTransferer.Address = SelectedTransfererDataModel.Address;
             }
         }
 
@@ -211,9 +211,9 @@ namespace Arkivverket.Arkade.UI.ViewModels
                 SetProperty(ref _selectedProducerDataModel, value);
                 MetaDataProducer.Entity = SelectedProducerDataModel.Entity;
                 MetaDataProducer.ContactPerson = SelectedProducerDataModel.ContactPerson;
+                MetaDataProducer.Address = SelectedProducerDataModel.Address;
                 MetaDataProducer.Telephone = SelectedProducerDataModel.Telephone;
                 MetaDataProducer.Email = SelectedProducerDataModel.Email;
-                MetaDataProducer.Address = SelectedProducerDataModel.Address;
             }
         }
 
@@ -431,17 +431,17 @@ namespace Arkivverket.Arkade.UI.ViewModels
                 {
                     Entity = "Eksempelorganisasjon 1",
                     ContactPerson = "Ola Nordmann",
+                    Address = "Bø i Telemark",
                     Telephone = "99999999",
-                    Email = "ola@nordmann.no",
-                    Address = "Bø i Telemark"
+                    Email = "ola@nordmann.no"
                 },
                 new MetadataEntityInformationUnit
                 {
                     Entity = "Eksempelorganisasjon 2",
                     ContactPerson = "Kari Nordmann",
+                    Address = "Oslo",
                     Telephone = "44444444",
-                    Email = "kari@nordmann.no",
-                    Address = "Oslo"
+                    Email = "kari@nordmann.no"
                 }
             };
 
@@ -569,9 +569,9 @@ namespace Arkivverket.Arkade.UI.ViewModels
                     {
                         entry.Entity = entity;
                         entry.ContactPerson = contactPerson;
+                        entry.Address = address;
                         entry.Telephone = telephone;
                         entry.Email = email;
-                        entry.Address = address;
                     }
                 }
                 return true;

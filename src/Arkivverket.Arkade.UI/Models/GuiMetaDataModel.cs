@@ -73,9 +73,9 @@ namespace Arkivverket.Arkade.UI.Models
 
         private string _entity;
         private string _contactPerson;
+        private string _address;
         private string _telephone;
         private string _email;
-        private string _address;
 
         private string _comment;
 
